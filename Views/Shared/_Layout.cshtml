@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <title>@ViewBag.Title - Dexter Lab Hospital</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -23,12 +24,13 @@
         .navbar a:hover {
             color: lemonchiffon;
         }
+       
     </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <a class="navbar-brand" href="#">Dexter Lab Hospital</a>
+            <a class="navbar-brand" href="#"><i class=''></i>&nbsp;Dexter Lab Hospital</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,6 +54,13 @@
                     <li class="nav-item nav-link">
                         @Html.ActionLink("Encounters", "Index", "Encounter")
                     </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Display Patients", "Display", "Patient")
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item nav-link"><a href="#"><i class="fas fa-registered"></i>Register</a></li>
+                    <li class="nav-item nav-link"><a href="#"><i class="fas fa-sign-in-alt"></i>Login</a></li>
                 </ul>
             </div>
         </nav>
