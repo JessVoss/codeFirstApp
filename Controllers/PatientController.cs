@@ -20,6 +20,33 @@ namespace codeFirstApp.Controllers
         {
             return View(db.Patients.ToList());
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDisplay([Bind(Include = "ID,LastName,FirstName,DateOfBirth")] Patient patient)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(patient).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Display");
+            }
+            return View(patient);
+        }
+
+        // GET: Student/Edit/5
+        public ActionResult EditDisplay(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Patient patient = db.Patients.Find(id);
+            if (patient == null)
+            {
+                return HttpNotFound();
+            }
+            return View(patient);
+        }
         public ActionResult Display()
         {
             return View(db.Patients.ToList());
